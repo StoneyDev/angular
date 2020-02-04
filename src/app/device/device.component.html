@@ -1,0 +1,14 @@
+<ul class="list-group">
+    <li [ngClass]="{'list-group-item': true,
+                    'list-group-item-success': deviceStatus === 'on',
+                    'list-group-item-danger': deviceStatus === 'off'}">
+        <h4>
+            Appareil : <span 
+                [ngStyle]="{color: getColor()}">{{ deviceName }}</span> 
+            -- Statut : {{ getStatus() }} 
+            <span style="display: inline-block; width: 20px; height: 20px; background-color: red;" 
+                *ngIf="deviceStatus === 'off'"></span>
+        </h4>
+        <input type="text" class="form-control" [(ngModel)]="deviceName">
+    </li>
+</ul>

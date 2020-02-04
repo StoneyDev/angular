@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+        <h1>Mes appareils</h1>
+        <p>Dernière mise à jour: {{ lastUpdate | async | date: 'dd/MM/y - HH:mm:ss' }}</p>
+    </div>
+    <div class="col-12">
+        <app-device *ngFor="let device of devices"
+            [deviceName]="device.name"
+            [deviceStatus]="device.status"></app-device>
+        <button class="btn btn-success mt-3" 
+            [disabled]="!isAuth" 
+            (click)="onTurnOn()">Tout allumer</button>
+    </div>
+  </div>
+</div>
