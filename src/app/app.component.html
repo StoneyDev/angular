@@ -5,12 +5,16 @@
         <p>Dernière mise à jour: {{ lastUpdate | async | date: 'dd/MM/y - HH:mm:ss' }}</p>
     </div>
     <div class="col-12">
-        <app-device *ngFor="let device of devices"
+        <app-device *ngFor="let device of devices; let i = index"
             [deviceName]="device.name"
-            [deviceStatus]="device.status"></app-device>
+            [deviceStatus]="device.status"
+            [deviceIndex]="i"></app-device>
         <button class="btn btn-success mt-3" 
             [disabled]="!isAuth" 
             (click)="onTurnOn()">Tout allumer</button>
+        <button class="btn btn-danger mt-3" 
+            [disabled]="!isAuth" 
+            (click)="onTurnOff()">Tout étiendre</button>
     </div>
   </div>
 </div>
