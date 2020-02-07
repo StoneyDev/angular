@@ -1,20 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="auth">Authentification <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="devices/">Appareils</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
 <div class="container">
   <div class="row">
     <div class="col-12">
-        <h1>Mes appareils</h1>
-        <p>Dernière mise à jour: {{ lastUpdate | async | date: 'dd/MM/y - HH:mm:ss' }}</p>
-    </div>
-    <div class="col-12">
-        <app-device *ngFor="let device of devices; let i = index"
-            [deviceName]="device.name"
-            [deviceStatus]="device.status"
-            [deviceIndex]="i"></app-device>
-        <button class="btn btn-success mt-3" 
-            [disabled]="!isAuth" 
-            (click)="onTurnOn()">Tout allumer</button>
-        <button class="btn btn-danger mt-3" 
-            [disabled]="!isAuth" 
-            (click)="onTurnOff()">Tout étiendre</button>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

@@ -1,18 +1,28 @@
 export class DeviceService {
     devices = [
         {
-          name: 'Machine à laver',
-          status: 'on'
+            id: 1,
+            name: 'Machine à laver',
+            status: 'on'
         },
         {
-          name: 'Frigo',
-          status: 'on'
+            id: 2,
+            name: 'Frigo',
+            status: 'on'
         },
         {
-          name: 'Ordinateur',
-          status: 'off'
+            id: 3,
+            name: 'Ordinateur',
+            status: 'off'
         }
     ]
+
+    getDeviceId(id: number) {
+        const device = this.devices.find((deviceObj) => {
+            return deviceObj.id === id;
+        });
+        return device;
+    }
 
     switchOnAll() {
         for(let device of this.devices) {

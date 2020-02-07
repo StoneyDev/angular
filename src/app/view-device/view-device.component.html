@@ -1,0 +1,14 @@
+<h1>Mes appareils</h1>
+<p>Dernière mise à jour: {{ lastUpdate | async | date: 'dd/MM/y - HH:mm:ss' }}</p>
+
+<app-device *ngFor="let device of devices; let i = index"
+    [deviceName]="device.name"
+    [deviceStatus]="device.status"
+    [deviceIndex]="i"
+    [deviceId]="device.id"></app-device>
+<button class="btn btn-success mt-3" 
+    [disabled]="!isAuth" 
+    (click)="onTurnOn()">Tout allumer</button>
+<button class="btn btn-danger mt-3" 
+    [disabled]="!isAuth" 
+    (click)="onTurnOff()">Tout étiendre</button>
